@@ -33,10 +33,15 @@ order by co.name limit 1
 -- p4
 SELECT distinct category from bugs
 
-
+-- starting from the p5 to p6, there are more than just one solution, I will list them all.
 -- p5
-SELECT count(distinct id) as 'count' from bugs where id >= 0 and created_at >= '2019-03-01' order by id, category, token;
+SELECT count(distinct id) as 'count' from bugs created_at >= '2019-03-01' order by id, category, token; -- gives 10%
+
+select count(created_at) from bugs where  id > 0 and created_at between '2019-03-01' and sysdate() -- gives 100%
+
 
 -- p6
 
-SELECT title FROM bugs WHERE token like 'token660' and reported_at like '2020-08-30' ORDER BY id;
+SELECT title FROM bugs WHERE token like 'token660' and reported_at like '2020-08-30' ORDER BY id; -- 10%
+
+select title from bugs where id = (select id from bugs where token = 'token660' and reported_at = '2020-08-30') -- 10%
