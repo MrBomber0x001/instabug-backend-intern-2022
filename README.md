@@ -16,6 +16,13 @@ Phase two was about writing 6 MySQL queries which test the candidate understandi
 The first 3 questions was about using JOINS with Aggregations and they were 
 The last 3 quetions about writing **performant** SQL queries making use of the avaialable indexes.
 
+
+#### Grading
+*Wrong submissions will make your lose 1% of the grade*
+- The first 3 challenges are based on only correctness.
+- The last 3 challenges are based on (10% correctness, 90% Performance).
+
+
 The problems are listed in #problems
 the answers are listed in #answers
 
