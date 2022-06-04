@@ -45,3 +45,9 @@ select count(created_at) from bugs where  id > 0 and created_at between '2019-03
 SELECT title FROM bugs WHERE token like 'token660' and reported_at like '2020-08-30' ORDER BY id; -- 10%
 
 select title from bugs where id = (select id from bugs where token = 'token660' and reported_at = '2020-08-30') -- 10%
+
+SELECT title FROM bugs WHERE category = 'bug' and token = 'token660' and reported_at = '2020-08-30'; -- 100%
+(remember that you should use the multi-column index as leftprefix)
+ex (category), (category, token), (category, token, reported_at) -- will work
+ex (token), (token, reported_at) -- will not work
+
